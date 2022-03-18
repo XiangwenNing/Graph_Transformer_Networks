@@ -67,11 +67,11 @@ if __name__ == '__main__':
     final_f1 = 0
     for l in range(1):
         model = GTN(num_edge=A.shape[-1],
-                            num_channels=num_channels,
-                            w_in = node_features.shape[1],
-                            w_out = node_dim,
-                            num_class=num_classes,
-                            num_layers=num_layers,
+                            num_channels=num_channels,       #num_channels:2
+                            w_in = node_features.shape[1],   #w_in:1902
+                            w_out = node_dim,                #w_out:64
+                            num_class=num_classes,           #num_class:3
+                            num_layers=num_layers,           #num_layers:2
                             norm=norm)
         if adaptive_lr == 'false':
             optimizer = torch.optim.Adam(model.parameters(), lr=0.005, weight_decay=0.001)
