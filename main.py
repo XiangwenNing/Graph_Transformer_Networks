@@ -41,7 +41,7 @@ if __name__ == '__main__':
     adaptive_lr = args.adaptive_lr
 
     with open('data/'+args.dataset+'/node_features.pkl','rb') as f:
-        node_features = pickle.load(f)
+        node_features = pickle.load(f)     #shape:8994*1902
     with open('data/'+args.dataset+'/edges.pkl','rb') as f:
         edges = pickle.load(f)
     with open('data/'+args.dataset+'/labels.pkl','rb') as f:
