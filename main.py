@@ -45,7 +45,7 @@ if __name__ == '__main__':
     with open('data/'+args.dataset+'/edges.pkl','rb') as f:
         edges = pickle.load(f)             #edges是个列表，长度为4，每个元素shape是8994*8994
     with open('data/'+args.dataset+'/labels.pkl','rb') as f:
-        labels = pickle.load(f)
+        labels = pickle.load(f)            #labels是个列表，长度为3(分别是train、val和test），每个元素shape是8994*8994
     num_nodes = edges[0].shape[0]
 
     for i,edge in enumerate(edges):
