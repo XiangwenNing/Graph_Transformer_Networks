@@ -99,10 +99,10 @@ class GTLayer(nn.Module):
         self.out_channels = out_channels
         self.first = first
         if self.first == True:
-            self.conv1 = GTConv(in_channels, out_channels)
-            self.conv2 = GTConv(in_channels, out_channels)
+            self.conv1 = GTConv(in_channels, out_channels)      #Q1
+            self.conv2 = GTConv(in_channels, out_channels)      #Q2
         else:
-            self.conv1 = GTConv(in_channels, out_channels)
+            self.conv1 = GTConv(in_channels, out_channels)      #Q3
     
     def forward(self, A, H_=None):
         if self.first == True:
