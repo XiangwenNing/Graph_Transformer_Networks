@@ -47,7 +47,7 @@ class GTN(nn.Module):
                 H_ = self.norm(H[i,:,:]).unsqueeze(0)
             else:
                 H_ = torch.cat((H_,self.norm(H[i,:,:]).unsqueeze(0)), dim=0)
-        return H_
+        return H_                   #shape：2*8994*8994
 
     def norm(self, H, add=False):   #两次转置，所以其实是按列求和
         H = H.t()
