@@ -52,7 +52,7 @@ class GTN(nn.Module):
     def norm(self, H, add=False):   #两次转置，所以其实是按列求和
         H = H.t()
         if add == False:
-            H = H*((torch.eye(H.shape[0])==0).type(torch.FloatTensor))
+            H = H*((torch.eye(H.shape[0])==0).type(torch.FloatTensor))     #去除对角线上的数
         else:
             H = H*((torch.eye(H.shape[0])==0).type(torch.FloatTensor)) + torch.eye(H.shape[0]).type(torch.FloatTensor)
         deg = torch.sum(H, dim=1)     #按行求和
