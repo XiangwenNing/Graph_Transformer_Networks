@@ -106,8 +106,8 @@ class GTLayer(nn.Module):
     
     def forward(self, A, H_=None):
         if self.first == True:
-            a = self.conv1(A)
-            b = self.conv2(A)
+            a = self.conv1(A)    #a的shape：2*8994*8994
+            b = self.conv2(A)    #b的shape：2*8994*8994
             H = torch.bmm(a,b)
             W = [(F.softmax(self.conv1.weight, dim=1)).detach(),(F.softmax(self.conv2.weight, dim=1)).detach()]
         else:
