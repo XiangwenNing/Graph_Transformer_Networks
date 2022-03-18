@@ -43,7 +43,7 @@ if __name__ == '__main__':
     with open('data/'+args.dataset+'/node_features.pkl','rb') as f:
         node_features = pickle.load(f)     #shape:8994*1902
     with open('data/'+args.dataset+'/edges.pkl','rb') as f:
-        edges = pickle.load(f)             #
+        edges = pickle.load(f)             #edges是个列表，长度为4，每个元素shape是8994*8994
     with open('data/'+args.dataset+'/labels.pkl','rb') as f:
         labels = pickle.load(f)
     num_nodes = edges[0].shape[0]
