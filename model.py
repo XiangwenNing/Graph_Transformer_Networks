@@ -81,7 +81,7 @@ class GTN(nn.Module):
         #H,W3 = self.layer3(A, H)
         for i in range(self.num_channels):      #self.num_channels：2
             if i==0:
-                X_ = F.relu(self.gcn_conv(X,H[i]))    #H[i]的shape：8994*8994
+                X_ = F.relu(self.gcn_conv(X,H[i]))    #H[i]的shape：8994*8994   X_的shape：8994*64
             else:
                 X_tmp = F.relu(self.gcn_conv(X,H[i]))
                 X_ = torch.cat((X_,X_tmp), dim=1)
