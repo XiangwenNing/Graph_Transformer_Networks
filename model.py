@@ -84,7 +84,7 @@ class GTN(nn.Module):
                 X_ = F.relu(self.gcn_conv(X,H[i]))    #H[i]的shape：8994*8994   X_的shape：8994*64
             else:
                 X_tmp = F.relu(self.gcn_conv(X,H[i]))
-                X_ = torch.cat((X_,X_tmp), dim=1)
+                X_ = torch.cat((X_,X_tmp), dim=1)     #cat后的X_的shape：8994*128
         X_ = self.linear1(X_)
         X_ = F.relu(X_)
         y = self.linear2(X_[target_x])
