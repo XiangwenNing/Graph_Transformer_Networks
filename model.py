@@ -108,7 +108,7 @@ class GTLayer(nn.Module):
         if self.first == True:
             a = self.conv1(A)    #a的shape：2*8994*8994
             b = self.conv2(A)    #b的shape：2*8994*8994
-            H = torch.bmm(a,b)
+            H = torch.bmm(a,b)   #H的shape：2*8994*8994
             W = [(F.softmax(self.conv1.weight, dim=1)).detach(),(F.softmax(self.conv2.weight, dim=1)).detach()]
         else:
             a = self.conv1(A)
