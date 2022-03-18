@@ -135,5 +135,5 @@ class GTConv(nn.Module):
             nn.init.uniform_(self.bias, -bound, bound)
 
     def forward(self, A):
-        A = torch.sum(A*F.softmax(self.weight, dim=1), dim=1)
+        A = torch.sum(A*F.softmax(self.weight, dim=1), dim=1)  #1*5*8994*8994 * 2*5*1*1 = 2*5*8994*8994 sum后：2*8994*8994
         return A
