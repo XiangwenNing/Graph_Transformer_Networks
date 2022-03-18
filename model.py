@@ -114,7 +114,7 @@ class GTLayer(nn.Module):
             a = self.conv1(A)
             H = torch.bmm(H_,a)
             W = [(F.softmax(self.conv1.weight, dim=1)).detach()]
-        return H,W
+        return H,W                     #H的shape：2*8994*8994
 
 class GTConv(nn.Module):
     
