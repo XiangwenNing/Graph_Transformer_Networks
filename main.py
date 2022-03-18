@@ -53,7 +53,7 @@ if __name__ == '__main__':
             A = torch.from_numpy(edge.todense()).type(torch.FloatTensor).unsqueeze(-1)
         else:
             A = torch.cat([A,torch.from_numpy(edge.todense()).type(torch.FloatTensor).unsqueeze(-1)], dim=-1)
-    A = torch.cat([A,torch.eye(num_nodes).type(torch.FloatTensor).unsqueeze(-1)], dim=-1)
+    A = torch.cat([A,torch.eye(num_nodes).type(torch.FloatTensor).unsqueeze(-1)], dim=-1)  #A的shape：8994*8994*5
     
     node_features = torch.from_numpy(node_features).type(torch.FloatTensor)
     train_node = torch.from_numpy(np.array(labels[0])[:,0]).type(torch.LongTensor)
