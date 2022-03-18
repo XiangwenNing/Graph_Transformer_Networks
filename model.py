@@ -49,16 +49,16 @@ class GTN(nn.Module):
                 H_ = torch.cat((H_,self.norm(H[i,:,:]).unsqueeze(0)), dim=0)
         return H_
 
-    def norm(self, H, add=False):
+    def norm(self, H, add=False):   #两次转置，所以其实是按列求和
         H = H.t()
         if add == False:
             H = H*((torch.eye(H.shape[0])==0).type(torch.FloatTensor))
         else:
             H = H*((torch.eye(H.shape[0])==0).type(torch.FloatTensor)) + torch.eye(H.shape[0]).type(torch.FloatTensor)
-        deg = torch.sum(H, dim=1)
-        deg_inv = deg.pow(-1)
+        deg = torch.sum(H, dim=1)     #按行求和
+        deg_inv = deg.pow(-1)         #归一化
         deg_inv[deg_inv == float('inf')] = 0
-        deg_inv = deg_inv*torch.eye(H.shape[0]).type(torch.FloatTensor)
+        deg_inv = deg_inv*torch.eye(H.shape[0]).type(torch.FloatTensor)    #转换为8994*8994的矩阵
         H = torch.mm(deg_inv,H)
         H = H.t()
         return H
