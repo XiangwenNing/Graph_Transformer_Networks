@@ -93,7 +93,7 @@ class GTN(nn.Module):
 
 class GTLayer(nn.Module):
     
-    def __init__(self, in_channels, out_channels, first=True):
+    def __init__(self, in_channels, out_channels, first=True):    #in_channels:5, out_channels:2
         super(GTLayer, self).__init__()
         self.in_channels = in_channels
         self.out_channels = out_channels
