@@ -64,7 +64,7 @@ class GTN(nn.Module):
         return H
 
     def forward(self, A, X, target_x, target):
-        A = A.unsqueeze(0).permute(0,3,1,2) 
+        A = A.unsqueeze(0).permute(0,3,1,2)       #shape:1*5*8994*8994
         Ws = []
         for i in range(self.num_layers):
             if i == 0:
